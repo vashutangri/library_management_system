@@ -54,7 +54,7 @@ void Login::on_pushButton_clicked()
     qry.bindValue(":username", username);
     qry.bindValue(":password", password);
 
-    //3. EXPLANATION OF THE WORKING OF THE CODE
+    //2. EXPLANATION OF THE WORKING OF THE CODE
     if (qry.exec()) {
         int count = 0;
         while (qry.next()) {
