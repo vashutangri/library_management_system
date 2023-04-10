@@ -1,15 +1,13 @@
-#include "deletemember.h"
-#include "ui_deletemember.h"
+#include "viewmember.h"
+#include "ui_viewmember.h"
 
 #define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
 
-DeleteMember::DeleteMember(QWidget *parent) :
+ViewMember::ViewMember(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DeleteMember)
+    ui(new Ui::ViewMember)
 {
     ui->setupUi(this);
-
-    //connect the database
     myDB = QSqlDatabase::addDatabase("QSQLITE","SQLITE");
     myDB.setDatabaseName(PathToDB);
     QFileInfo checkfile(PathToDB);
@@ -27,38 +25,33 @@ DeleteMember::DeleteMember(QWidget *parent) :
     }
 }
 
-DeleteMember::~DeleteMember()
+
+
+ViewMember::~ViewMember()
 {
     delete ui;
 }
 
-
-void DeleteMember::on_Delete_btn_clicked()
+void ViewMember::on_Load_btn_clicked()
 {
-    QString Memberid = ui->Id_lineEdit->text(); // Get the Memberid value from a form field
 
+    QSqlQueryModel *Modal = new QSqlQueryModel();
     if (!myDB.isOpen()) {
         qDebug() << "No connection to db...";
         return;
     }
     else {
-        //query execution to delete entries
         QSqlQuery qry(myDB);
-        qry.prepare("DELETE FROM Members WHERE Member_ID = ?");
-        qry.addBindValue(Memberid);
+        qry.prepare("select * from Members ");
+//        qry.addBindValue(Memberid);
         if (qry.exec()) {
-            ui->status->setText("Member deleted successfully.");
+            Modal ->setQuery(qry);
+            ui->tableView->setModel(Modal);
+
+            ui->status->setText(" ");
         }
         else {
-            ui->status->setText("Failed to delete member.");
+            ui->status->setText("Failed to view memebers");
         }
     }
 }
-
-
-
-void DeleteMember::on_pushButton_2_clicked()
-{
-    close();
-}
-

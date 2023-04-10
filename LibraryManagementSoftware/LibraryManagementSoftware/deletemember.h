@@ -2,21 +2,32 @@
 #define DELETEMEMBER_H
 
 #include <QDialog>
+#include<QtSql>
+#include<QDebug>
+#include<QFileInfo>
+#include<QMessageBox>
+
 
 namespace Ui {
-class deleteMember;
+class DeleteMember;
 }
 
-class deleteMember : public QDialog
+class DeleteMember : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit deleteMember(QWidget *parent = nullptr);
-    ~deleteMember();
+    explicit DeleteMember(QWidget *parent = nullptr);
+    ~DeleteMember();
+    QSqlDatabase myDB = QSqlDatabase::addDatabase("QSQLITE", "SQLITE");
+
+private slots:
+    void on_Delete_btn_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
-    Ui::deleteMember *ui;
+    Ui::DeleteMember *ui;
 };
 
 #endif // DELETEMEMBER_H

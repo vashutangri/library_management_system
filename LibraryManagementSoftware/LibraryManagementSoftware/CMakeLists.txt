@@ -42,7 +42,18 @@ set(PROJECT_SOURCES
         addmember.cpp
         addmember.h
         addmember.ui
-
+        deletemember.cpp
+        deletemember.h
+        deletemember.ui
+        edit_member.cpp
+        edit_member.h
+        edit_member.ui
+        viewmember.cpp
+        viewmember.h
+        viewmember.ui
+        member_management.cpp
+        member_management.h
+        member_management.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

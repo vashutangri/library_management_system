@@ -1,15 +1,17 @@
-#include "addmember.h"
-#include "ui_addmember.h"
-
-#include <QDebug>
+#include "edit_member.h"
+#include "ui_edit_member.h"
 
 #define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
 
-AddMember::AddMember(QWidget *parent) :
+Edit_member::Edit_member(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddMember)
+    ui(new Ui::Edit_member)
 {
     ui->setupUi(this);
+
+
+    //connecting databse
+    myDB = QSqlDatabase::addDatabase("QSQLITE","SQLITE");
     myDB.setDatabaseName(PathToDB);
     QFileInfo checkfile(PathToDB);
 
@@ -27,23 +29,35 @@ AddMember::AddMember(QWidget *parent) :
         ui ->status ->setText("file not open...");
     }
 
-
+    // Initialize Gender as an empty string
+    Gender = "";
 }
 
-AddMember::~AddMember()
+
+
+
+Edit_member::~Edit_member()
 {
     delete ui;
-    myDB.close();
 }
 
-void AddMember::on_Gender_comboBox_currentTextChanged(const QString &arg1)
+
+
+
+//function to take input from the combobox
+void Edit_member::on_Gender_comboBox_currentTextChanged(const QString &arg1)
 {
-    // Update Gender when the combo box changes
     Gender = ui->Gender_comboBox->currentText();
 }
 
-void AddMember::on_Add_pushButton_clicked()
+
+
+
+/****Function to edit info when the button is clicked****/
+
+void Edit_member::on_Edit_btn_clicked()
 {
+    QString ConMemID = ui->IDToConfirm_lineEdit->text();
     QString name = ui->Name_lineEdit->text();
     QString Memberid = ui->MemberID_lineEdit->text();
     QString Phone_no = ui->PNo_lineEdit->text();
@@ -55,7 +69,7 @@ void AddMember::on_Add_pushButton_clicked()
     }
     else {
         QSqlQuery qry(myDB);
-        if (qry.exec("INSERT INTO Members (Member_name,Member_ID,Phone_Number,email,Gender) VALUES ('" + name + "', '" + Memberid + "', '" + Phone_no + "','" + Emailid +"','"+Gender+"')")) {
+        if (qry.exec("UPDATE Members SET Member_name='" + name + "', Member_ID='" + Memberid + "', Phone_Number='" + Phone_no + "', email='" + Emailid +"', Gender='" + Gender + "' WHERE Member_ID='" + ConMemID + "'")) {
             ui->status->setText("you did it bro!!!!");
         }
         else {
@@ -65,13 +79,14 @@ void AddMember::on_Add_pushButton_clicked()
 }
 
 
-//                    AddMember::~AddMember()
-//        {
-//                    delete ui;
-//                    myDB.close();
-//}
 
-void AddMember::on_pushButton_2_clicked()
+
+
+
+
+
+//close the window
+void Edit_member::on_cancel_btn_clicked()
 {
     close();
 }
