@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <managebooks.h>
 #include <member_management.h>
+#include <issuebook.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -26,11 +27,14 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     ManageBooks * ptrManageBooks;
     Login * ptrLogin;
     Member_management * ptrMemberManagement;
+    issueBook * ptrIssueBook;
 
 };
 #endif // MAINWINDOW_H

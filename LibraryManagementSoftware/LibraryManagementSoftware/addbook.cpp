@@ -19,8 +19,38 @@ void AddBook::on_btnAddBook_clicked()
     QString BookName = ui->txtBookName->text();
     QString BookAuthor = ui->txtBookAuthor->text();
     QString BookPublisher = ui->txtBookPublisher->text();
+    QString Genre = ui->txtGenre->text();
+    QString Quantity = ui->txtQuantity->text();
+    QString Price = ui->txtPrice->text();
+    QString Date = ui->dateEdit->text();
+    QString Description = ui->txtDescription->toPlainText();
+    //QString coverPath = coverFileName;
 
-    qDebug() << "Book ISBN: " + BookISBN + " Book Name: " + BookName + " BookAuthor: " + BookAuthor + " BookPublisher " + BookPublisher;
+     QStringList bookInfo {BookISBN,
+                 BookName,
+                 BookAuthor,
+                 BookPublisher,
+                 Genre,
+                 Quantity,
+                 Price,
+                 Date,
+                 Description};
+
+     //test if the fields are not empty
+     bool full = true;
+     for(int i=0; i<bookInfo.length(); i++)
+     {
+         if(bookInfo[i].isEmpty())
+         {
+             full = false;
+             if (full==false) qDebug() << "Fields are empty";
+             break;
+         }
+         qDebug() << bookInfo[i];
+     }
+
+
+     qDebug() << "Book ISBN: " + BookISBN + " Book Name: " + BookName + " BookAuthor: " + BookAuthor + " BookPublisher " + BookPublisher;
 
     //Following code is for Database Connectivity.
     //First Define database object name
@@ -49,7 +79,8 @@ void AddBook::on_btnAddBook_clicked()
 
     QSqlQuery query(database);
 
-    query.prepare("insert into BookDetails (BookISBN, BookName, BookAuthor, BookPublisher) values('"+BookISBN + "','" +BookName + "','" + BookAuthor+ "','" +BookPublisher + "')");
+    query.prepare("insert into BookDetails (BookISBN, BookName, BookAuthor, BookPublisher, Genre, Quantity, Price, Date, Description)"
+                  "values('"+BookISBN + "','" +BookName + "','" + BookAuthor+ "','" +BookPublisher + "','" +Genre+ "','" + Quantity+ "','" + Price+ "','" + Date+ "','" + Description + "')");
     query.exec();
     qDebug() << "Last Error: " + query.lastError().text();
 

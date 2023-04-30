@@ -6,90 +6,211 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>593</width>
-    <height>471</height>
+    <width>928</width>
+    <height>242</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Add Book</string>
   </property>
-  <widget class="QWidget" name="formLayoutWidget">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>571</width>
-     <height>361</height>
+     <width>441</width>
+     <height>221</height>
     </rect>
    </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="ISBN">
-      <property name="text">
-       <string>ISBN: </string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="txtBookISBN"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="Name">
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="Author">
-      <property name="text">
-       <string>Author</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="txtBookName"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="Publisher">
-      <property name="text">
-       <string>Publisher</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="txtBookAuthor"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="txtBookPublisher"/>
-    </item>
-   </layout>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>441</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="ISBN">
+       <property name="text">
+        <string>ISBN: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txtBookISBN"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="Name">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="txtBookName"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="Author">
+       <property name="text">
+        <string>Author</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="txtBookAuthor"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="Publisher">
+       <property name="text">
+        <string>Publisher</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txtBookPublisher"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="Genre">
+       <property name="text">
+        <string>Genre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="txtGenre"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="Quantity">
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="txtQuantity"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="Price">
+       <property name="text">
+        <string>Price</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="txtPrice"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="Date">
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="btnAddBook">
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>430</y>
-     <width>75</width>
-     <height>24</height>
+     <x>470</x>
+     <y>10</y>
+     <width>441</width>
+     <height>231</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Add Book</string>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-  </widget>
-  <widget class="QPushButton" name="btnCancel">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>430</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
+   <widget class="QLabel" name="BookCover">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>150</y>
+      <width>439</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Book Cover</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="txtDescription">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>439</width>
+      <height>121</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BookDescription">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-2</y>
+      <width>439</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Book Description</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="UploadButoon">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>75</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Upload</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCancel">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>200</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddBook">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>200</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Book</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

@@ -54,7 +54,16 @@ set(PROJECT_SOURCES
         member_management.cpp
         member_management.h
         member_management.ui
-)
+        issuebook.cpp
+        issuebook.h
+        issuebook.ui
+        returnbook.cpp
+        returnbook.h
+        returnbook.ui
+        genrelist.cpp
+        genrelist.h
+        genrelist.ui
+    )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(LibraryManagementSoftware
