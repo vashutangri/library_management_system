@@ -144,3 +144,64 @@ void issueBook::on_searchMember_clicked()
 
 }
 
+
+void issueBook::on_issue_2_clicked()
+{
+    //Following code is for Database Connectivity.
+    //First Define database object name
+    QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+    //Set database path
+    database.setDatabaseName("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db");
+
+    //Check if file exists
+    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db"))
+        qDebug() << "Database File Exists";
+    else
+    {
+        qDebug() << "Database File Does Not Exist";
+        return;
+    }
+
+    //OPEN DATABASE FILE
+    if(!database.open()) {
+        qDebug() << "Error: Unable to open Database";
+    }
+    else {
+        qDebug() <<"Database opened successfully";
+    }
+
+    //retrieve the IDs
+    QString bookID = ui->bookID->text();
+    QString memberID = ui->memberID->text();
+    QString status{"Issued"};
+    QString issueDate = ui->issueDate->text();
+    QString returnDate = ui->returnDate->text();
+    QString notes = ui->notes->toPlainText();
+
+    //retrieve the issueDate
+    QStringList dateList_1 = issueDate.split("/");
+    QDate Date_1;
+    if(dateList_1.length() == 3)
+        Date_1 = QDate(dateList_1[2].toInt(), dateList_1[1].toInt(), dateList_1[0].toInt());
+
+    //Retrieve the return Date
+    QStringList dateList_2 = returnDate.split("/");
+    QDate Date_2;
+    if(dateList_2.length() == 3)
+        Date_2 = QDate(dateList_2[2].toInt(), dateList_2[1].toInt(), dateList_2[0].toInt());
+
+    //test
+    if(Date_1 > Date_2)
+        QMessageBox::critical(this, "Failed", "The return date must be after the issue Date");
+    else{
+        auto query = QSqlQuery(database);
+        QString insert{"INSERT INTO bookStatus (Book, Member, Status, IssueDate, ReturnDate, Note) VALUES ('%1', '%2','%3', '%4', '%5','%6')"};
+        if(!query.exec(insert.arg(bookID.toInt()).arg(memberID.toInt()).arg(status).arg(issueDate).arg(returnDate).arg(notes)))
+        {
+            qDebug() << "cannot fill bookStatus";
+        }
+        else
+            QMessageBox::information(this, "SUCCESS", "Book issued successfully");
+    }
+}
+
