@@ -205,3 +205,9 @@ void issueBook::on_issue_2_clicked()
     }
 }
 
+
+void issueBook::on_cancel_clicked()
+{
+    this->hide();
+}
+

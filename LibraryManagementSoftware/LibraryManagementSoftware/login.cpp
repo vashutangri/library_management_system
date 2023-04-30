@@ -7,6 +7,9 @@ Login::Login(QWidget *parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
+    ptrMainWindow = new QMainWindow();
+    ptrSignUp = new signup();
+
 
 }
 
@@ -62,6 +65,7 @@ void Login::on_pushButton_clicked()
         }
         if (count == 1) {
             ui->label->setText("Username and password is correct");
+            ptrMainWindow->show();
         }
         else if (count > 1) {
             ui->label->setText("Please choose another username");
@@ -84,7 +88,15 @@ void Login::on_pushButton_clicked()
 Login::~Login()
 {
     delete ui;
+    delete ptrSignUp;
+    delete ptrMainWindow;
 }
 
 
+
+
+void Login::on_pushButton_2_clicked()
+{
+    ptrSignUp->show();
+}
 

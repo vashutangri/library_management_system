@@ -20,6 +20,10 @@ private slots:
 
     void on_searchMember_clicked();
 
+    void on_issue_2_clicked();
+
+    void on_cancel_clicked();
+
 private:
     Ui::issueBook *ui;
 };

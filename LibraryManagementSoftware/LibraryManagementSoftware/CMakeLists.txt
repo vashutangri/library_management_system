@@ -26,9 +26,6 @@ set(PROJECT_SOURCES
         addbook.cpp
         addbook.h
         addbook.ui
-        editbook.cpp
-        editbook.h
-        editbook.ui
         deletebook.cpp
         deletebook.h
         deletebook.ui
@@ -42,12 +39,12 @@ set(PROJECT_SOURCES
         addmember.cpp
         addmember.h
         addmember.ui
-        deletemember.cpp
-        deletemember.h
-        deletemember.ui
         edit_member.cpp
         edit_member.h
         edit_member.ui
+        deletemember.cpp
+        deletemember.h
+        deletemember.ui
         viewmember.cpp
         viewmember.h
         viewmember.ui
@@ -57,12 +54,10 @@ set(PROJECT_SOURCES
         issuebook.cpp
         issuebook.h
         issuebook.ui
-        returnbook.cpp
-        returnbook.h
-        returnbook.ui
-        genrelist.cpp
-        genrelist.h
-        genrelist.ui
+        signup.cpp
+        signup.ui
+        signup.h
+        resource.qrc
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
