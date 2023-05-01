@@ -1,6 +1,8 @@
 #include "findbook.h"
 #include "ui_findbook.h"
 
+#define path_to_DB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/LibraryManagement.db"
+
 FindBook::FindBook(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::FindBook)
@@ -22,10 +24,10 @@ void FindBook::on_btnFind_clicked()
     //First Define database object name
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     //Set database path
-    database.setDatabaseName("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db");
+    database.setDatabaseName(path_to_DB);
 
     //Check if file exists
-    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db"))
+    if(QFile::exists(path_to_DB))
         qDebug() << "Database File Exists";
     else
     {

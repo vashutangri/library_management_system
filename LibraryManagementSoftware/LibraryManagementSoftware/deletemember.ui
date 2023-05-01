@@ -6,12 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>394</width>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
   </property>
   <widget class="QLabel" name="status">
    <property name="geometry">
@@ -48,6 +63,11 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;
+</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="Delete_btn">
    <property name="geometry">
@@ -73,6 +93,28 @@
    </property>
    <property name="text">
     <string>cancel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>351</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>Delete Member</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

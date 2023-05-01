@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
+#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/members_info.db"
 
 AddMember::AddMember(QWidget *parent) :
     QDialog(parent),

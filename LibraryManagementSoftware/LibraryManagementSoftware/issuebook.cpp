@@ -1,9 +1,13 @@
 #include "issuebook.h"
+#include "qsqlerror.h"
 #include "qsqlquery.h"
 #include "ui_issuebook.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
 #include <QFile>
+
+#define path_to_DB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/LibraryManagement.db"
+#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/signInInfo.db"
 
 issueBook::issueBook(QWidget *parent) :
     QDialog(parent),
@@ -33,10 +37,10 @@ void issueBook::on_searchBook_clicked()
     //First Define database object name
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     //Set database path
-    database.setDatabaseName("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db");
+    database.setDatabaseName(path_to_DB);
 
     //Check if file exists
-    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db"))
+    if(QFile::exists(path_to_DB))
         qDebug() << "Database File Exists";
     else
     {
@@ -54,10 +58,12 @@ void issueBook::on_searchBook_clicked()
 
     //search the book
     auto query = QSqlQuery(database);
-    QString searchBook{"SELECT * FROM books WHERE ID = '%1'"};
-    if(!query.exec(searchBook.arg(bookID)))
+    QString searchBook{"SELECT * FROM BookDetails WHERE ID ='" + bookID + "'"};
+    if(!query.exec(searchBook))
+    {
+        qDebug() << query.lastError().text();
         qDebug() << "Cannot select from  books";
-
+    }
     int count = 0;
     while(query.next())
         count++;
@@ -85,9 +91,10 @@ void issueBook::on_searchBook_clicked()
 
         }
     }
-    else
+    else {
+        qDebug() << query.lastError().text();
         QMessageBox::critical(this,"Failed", "Book Not found");
-
+    }
 }
 
 
@@ -95,16 +102,17 @@ void issueBook::on_searchMember_clicked()
 {
     //Get the ID
     QString memberID = ui->memberID->text();
+    qDebug() << memberID <<"is";
     QString memberName;
 
     //Following code is for Database Connectivity.
     //First Define database object name
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     //Set database path
-    database.setDatabaseName("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db");
+    database.setDatabaseName(PathToDB);
 
     //Check if file exists
-    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db"))
+    if(QFile::exists(PathToDB))
         qDebug() << "Database File Exists";
     else
     {
@@ -121,11 +129,9 @@ void issueBook::on_searchMember_clicked()
     }
 
     //search the member
-    auto query = QSqlQuery(database);
-    QString searchMember{"SELECT * FROM members WHERE ID = '%1'"};
-    if(!query.exec(searchMember.arg(memberID)))
-        qDebug() << "Cannot select from  members";
-
+    QSqlQuery query;
+    if(query.exec("SELECT * FROM signInInfo WHERE ID ='" + memberID + "'"))
+    {
     int count = 0;
     while(query.next())
         count++;
@@ -140,7 +146,11 @@ void issueBook::on_searchMember_clicked()
     }
     else
         QMessageBox::critical(this,"Failed", "Member Not found");
-
+    }
+    else {
+    qDebug() << query.lastError().text();
+    qDebug() << "Entered Error: Cannot select from  members";
+    }
 
 }
 
@@ -151,10 +161,10 @@ void issueBook::on_issue_2_clicked()
     //First Define database object name
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     //Set database path
-    database.setDatabaseName("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db");
+    database.setDatabaseName(path_to_DB);
 
     //Check if file exists
-    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/LibraryManagement.db"))
+    if(QFile::exists(path_to_DB))
         qDebug() << "Database File Exists";
     else
     {
@@ -198,7 +208,8 @@ void issueBook::on_issue_2_clicked()
         QString insert{"INSERT INTO bookStatus (Book, Member, Status, IssueDate, ReturnDate, Note) VALUES ('%1', '%2','%3', '%4', '%5','%6')"};
         if(!query.exec(insert.arg(bookID.toInt()).arg(memberID.toInt()).arg(status).arg(issueDate).arg(returnDate).arg(notes)))
         {
-            qDebug() << "cannot fill bookStatus";
+        qDebug() << query.lastError().text();
+        qDebug() << "cannot fill bookStatus";
         }
         else
             QMessageBox::information(this, "SUCCESS", "Book issued successfully");

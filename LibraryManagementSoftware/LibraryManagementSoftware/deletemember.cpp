@@ -1,7 +1,7 @@
 #include "deletemember.h"
 #include "ui_deletemember.h"
 
-#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
+#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/members_info.db"
 
 DeleteMember::DeleteMember(QWidget *parent) :
     QDialog(parent),

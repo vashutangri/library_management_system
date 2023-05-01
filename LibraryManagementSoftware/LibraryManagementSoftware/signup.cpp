@@ -1,7 +1,8 @@
 #include "signup.h"
 #include "ui_signup.h"
+#include <login.h>
 
-#define path_to_DB "H:/C++ QT/library_management_system/pesonal_Info.db"
+#define path_to_DB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/signInInfo.db"
 
 signup::signup(QWidget *parent) :
     QDialog(parent),
@@ -49,5 +50,13 @@ void signup::on_pushButton_clicked()
             ui->status->setText("you messed up bro");
         }
     }
+}
+
+
+void signup::on_LoginButton_clicked()
+{
+    Login* loginWindow = new Login(this);
+    loginWindow->setWindowModality(Qt::ApplicationModal);
+    loginWindow->show();
 }
 

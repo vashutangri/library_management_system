@@ -30,6 +30,6 @@ private:
     QSqlDatabase mydb;
 
     signup * ptrSignUp;
-    QMainWindow * ptrMainWindow;
+    MainWindow * ptrMainWindow;
 };
 #endif // LOGIN_H

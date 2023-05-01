@@ -7,20 +7,41 @@
     <x>0</x>
     <y>0</y>
     <width>903</width>
-    <height>232</height>
+    <height>303</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Edit Book</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit{
+background-color: rgb(255, 244, 243);
+border-radius:18%;
+}</string>
+  </property>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>0</y>
+     <y>50</y>
      <width>441</width>
      <height>231</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -49,6 +70,11 @@
       <width>439</width>
       <height>121</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(255, 244, 243);
+border-radius:18%;</string>
     </property>
    </widget>
    <widget class="QLabel" name="BookDescription">
@@ -108,7 +134,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>50</y>
      <width>441</width>
      <height>221</height>
     </rect>
@@ -125,7 +151,7 @@
       <x>0</x>
       <y>0</y>
       <width>441</width>
-      <height>221</height>
+      <height>316</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -207,10 +233,39 @@
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QDateEdit" name="dateEdit"/>
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="styleSheet">
+        <string notr="true">
+background-color: rgb(255, 244, 243);
+border-radius:18%;
+</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>0</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>Edit Book</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

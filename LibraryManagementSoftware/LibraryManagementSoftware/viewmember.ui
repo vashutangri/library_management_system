@@ -13,11 +13,26 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
+  </property>
   <widget class="QLabel" name="status">
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>10</y>
+     <y>50</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -30,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>270</y>
+     <y>310</y>
      <width>221</width>
      <height>51</height>
     </rect>
@@ -43,10 +58,36 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>40</y>
+     <y>80</y>
      <width>531</width>
      <height>201</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>0</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>View Members</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

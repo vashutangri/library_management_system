@@ -7,14 +7,29 @@
     <x>0</x>
     <y>0</y>
     <width>399</width>
-    <height>600</height>
+    <height>280</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Login</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="status">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -31,7 +46,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>10</y>
+      <y>60</y>
       <width>241</width>
       <height>151</height>
      </rect>
@@ -70,7 +85,12 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_username"/>
+       <widget class="QLineEdit" name="lineEdit_username">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -92,7 +112,15 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_password"/>
+       <widget class="QLineEdit" name="lineEdit_password">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;</string>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -110,16 +138,28 @@
      </property>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>399</width>
-     <height>22</height>
-    </rect>
-   </property>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>0</y>
+      <width>241</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

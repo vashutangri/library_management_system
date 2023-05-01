@@ -2,15 +2,15 @@
 #include "ui_login.h"
 #include<QDebug>
 
+#define path_to_DB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/signInInfo.db"
+
 Login::Login(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Login)
 {
     ui->setupUi(this);
-    ptrMainWindow = new QMainWindow();
+    ptrMainWindow = new MainWindow();
     ptrSignUp = new signup();
-
-
 }
 
 
@@ -27,11 +27,11 @@ void Login::on_pushButton_clicked()
     //First Define database object name
     QSqlDatabase mydb= QSqlDatabase::addDatabase("QSQLITE");
     //set database path
-    mydb.setDatabaseName("H:/C++ QT/library_management_system/pesonal_Info.db");
+    mydb.setDatabaseName(path_to_DB);
 
 
     //Check if file exists
-    if(QFile::exists("H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/personal_Info.db"))
+    if(QFile::exists(path_to_DB))
         qDebug() << "Database File Exists";
     else
     {
@@ -51,35 +51,22 @@ void Login::on_pushButton_clicked()
     }
 
     /****************************************Adding SQL Query**************************/
-
+    // Execute the SQL query to check if the username and password entered are valid
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM personalInfo WHERE username = :username AND password = :password");
-    qry.bindValue(":username", username);
-    qry.bindValue(":password", password);
-
-    //2. EXPLANATION OF THE WORKING OF THE CODE
-    if (qry.exec()) {
-        int count = 0;
-        while (qry.next()) {
-            count++;
-        }
-        if (count == 1) {
-            ui->label->setText("Username and password is correct");
-            ptrMainWindow->show();
-        }
-        else if (count > 1) {
-            ui->label->setText("Please choose another username");
-        }
-        else {
-            ui->label->setText("Username and password is incorrect");
-        }
-    }
-    else {
-        ui->label->setText("Failed to execute query");
-        qDebug() << qry.lastError().text();
+    if (qry.exec("SELECT * FROM signInInfo WHERE username='" + username + "' AND password='" + password + "'")) {
+       if (qry.next()) {
+           ui->status->setText("Valid username and password. Welcome!");
+           ptrMainWindow->show();
+           close();
+           ;
+       } else {
+           ui->status->setText("Invalid username or password.");
+       }
+    } else {
+       ui->status->setText("Failed to execute query.");
+       qDebug() << qry.lastError().text();
     }
 }
-
 
 
 

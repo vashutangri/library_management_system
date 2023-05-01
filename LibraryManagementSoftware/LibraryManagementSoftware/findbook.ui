@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>459</width>
-    <height>358</height>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>70</y>
      <width>101</width>
      <height>16</height>
     </rect>
@@ -30,20 +30,40 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>10</y>
+     <y>70</y>
      <width>251</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;
+</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnFind">
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>10</y>
+     <y>70</y>
      <width>75</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
    </property>
    <property name="text">
     <string>Find Book</string>
@@ -53,10 +73,37 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>100</y>
      <width>431</width>
      <height>261</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 244, 243);
+border-radius:18%;
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>Find Book</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

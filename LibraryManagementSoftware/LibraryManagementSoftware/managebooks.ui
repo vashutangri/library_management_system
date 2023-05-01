@@ -7,20 +7,32 @@
     <x>0</x>
     <y>0</y>
     <width>456</width>
-    <height>66</height>
+    <height>120</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Manage Books</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
   </property>
   <widget class="QPushButton" name="AddBook">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>60</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -33,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>10</y>
+     <y>60</y>
      <width>101</width>
      <height>41</height>
     </rect>
@@ -46,7 +58,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>10</y>
+     <y>60</y>
      <width>91</width>
      <height>41</height>
     </rect>
@@ -59,13 +71,35 @@
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>10</y>
+     <y>60</y>
      <width>101</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Issue Book</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>0</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>Manage Books</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

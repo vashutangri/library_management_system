@@ -58,6 +58,9 @@ set(PROJECT_SOURCES
         signup.ui
         signup.h
         resource.qrc
+        editbook.cpp
+        editbook.h
+        editbook.ui
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

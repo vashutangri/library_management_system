@@ -1,7 +1,7 @@
 #include "edit_member.h"
 #include "ui_edit_member.h"
 
-#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
+#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/members_info.db"
 
 Edit_member::Edit_member(QWidget *parent) :
     QDialog(parent),

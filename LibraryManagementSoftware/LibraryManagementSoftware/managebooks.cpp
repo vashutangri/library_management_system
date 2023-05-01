@@ -7,7 +7,6 @@ ManageBooks::ManageBooks(QWidget *parent) :
 {
     ui->setupUi(this);
     ptrAddBook = new AddBook();
-    //ptrEditBook = new EditBook();
     ptrDeleteBook = new DeleteBook();
     ptrFindBook = new FindBook();
     ptrIssueBook = new issueBook();
@@ -17,7 +16,6 @@ ManageBooks::~ManageBooks()
 {
     delete ptrFindBook;
     delete ptrDeleteBook;
-    //delete ptrEditBook;
     delete ptrAddBook;
     delete ptrIssueBook;
     delete ui;

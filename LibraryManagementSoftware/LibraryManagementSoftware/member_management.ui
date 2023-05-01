@@ -7,19 +7,34 @@
     <x>0</x>
     <y>0</y>
     <width>599</width>
-    <height>319</height>
+    <height>160</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+background-color: rgb(242, 255, 219);
+
+font: 350 9pt &quot;Segoe UI Variable Text Semiligh&quot;;
+
+border-radius:20%;
+border:2px;
+font: 12pt &quot;Segoe UI&quot;;
+}
+QPushButton:hover{
+        background-color: rgb(255, 231, 212)
+}
+</string>
+  </property>
   <widget class="QPushButton" name="EditInfo_btn">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>30</y>
-     <width>171</width>
-     <height>91</height>
+     <x>150</x>
+     <y>70</y>
+     <width>141</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
@@ -30,9 +45,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>30</y>
-     <width>171</width>
-     <height>91</height>
+     <y>70</y>
+     <width>131</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
@@ -42,10 +57,10 @@
   <widget class="QPushButton" name="MemberList_btn">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>181</width>
-     <height>91</height>
+     <x>300</x>
+     <y>70</y>
+     <width>131</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
@@ -68,14 +83,36 @@
   <widget class="QPushButton" name="Delete_btn">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>200</y>
-     <width>171</width>
-     <height>91</height>
+     <x>440</x>
+     <y>70</y>
+     <width>151</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
     <string>Delete Member</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>10</y>
+     <width>291</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Arial&quot;;
+color:white;
+background-color:rgb(184, 85, 255);
+border-radius:13%;</string>
+   </property>
+   <property name="text">
+    <string>Member Management</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

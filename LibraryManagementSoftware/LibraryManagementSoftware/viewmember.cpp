@@ -1,7 +1,7 @@
 #include "viewmember.h"
 #include "ui_viewmember.h"
 
-#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/Database/members_info.db"
+#define PathToDB "H:/C++ QT/library_management_system/LibraryManagementSoftware/LibraryManagementSoftware/Database/members_info.db"
 
 ViewMember::ViewMember(QWidget *parent) :
     QDialog(parent),
